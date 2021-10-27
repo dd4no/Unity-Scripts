@@ -47,7 +47,7 @@
   - `OnCollisionEnter(Collision collision)` 
 - Animations
   - States, Layers, and Transitions
-  - `GetComponent<Animator>()
+  - `GetComponent<Animator>()`
   - `.SetTrigger()`
   - `.SetBool()`
   - `SetInteger()`
