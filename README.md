@@ -32,7 +32,6 @@
   - `InvokeRepeating()`
 - Colliders and Triggers
   - `OnTriggerEnter(Collider other)`
-  - Tags
 - Logging Information
   - `Debug.Log()`
 
@@ -41,16 +40,21 @@
   - Speed, Mass, Force, and Gravity
   - `GetComponent<Rigidbody>()`
   - `AddForce(Vector3.up)`
+  - `ForceMode.Impulse`
   - `Physics.gravity`
 - Booleans and Conditional Statements
-- Ground Detection
-  - `OnCollisionEnter(Collision collision)` 
+- Tags
+- Collision Detection
+  - `OnCollisionEnter(Collision collision)`
+  - `gameObject.CompareTag("Object Name")`
+- Script Communication
+  - `script = GameObject.Find("Object Name with Script").GetComponent<PlayerController>();` 
 - Animations
   - States, Layers, and Transitions
   - `GetComponent<Animator>()`
   - `.SetTrigger()`
   - `.SetBool()`
-  - `SetInteger()`
+  - `.SetInteger()`
 - Particles
   - `.Play()`
   - `.Stop()`
@@ -61,7 +65,25 @@
   - `.PlayOneShot()`
 
 ## Prototype4 -- Rolling Balls
--
-
+- Camera as child object
+- Global vs. Local coordinates
+- Moving in Direction of Objects
+  - `object = GameObject.Find("Object Name")`
+  - `AddForce(object.transform.forward)`
+- Physics Materials
+  -  Bounciness
+- Defining Vectors in 3D
+- Methods with Return Values 
+- Concatenation
+- IEnumerators and Coroutines
+  - `IEnumerator Method() {yield return new WaitForSeconds()}`
+  - `StartCoroutine(Method())`
+- Showing and Hiding Objects
+  - `gameObject.SetActive()`
+- For-Loops
+- Incrementing
+- Counting Objects
+  - `FindObjectsOfType<type>().Length`
+  
 ## Working Game -- "Blast 'em!"
 -
