@@ -86,4 +86,23 @@
   - `FindObjectsOfType<type>().Length`
   
 ## Working Game -- "Blast 'em!"
--
+- 2D View
+- Using GameManager Class
+- `gameObject.AddTorque()`
+- Lists
+- While Loops
+- Mouse Events
+  - `OnMouseDown()`
+- User Interface
+  - TextMeshPro
+  - `using TMPro;`
+  - `TextMeshProUGUI`
+  - Canvas
+  - Anchor Points
+- Scene Management
+  - `using UnityEngine.SceneManagement;`
+  - `SceneManager.LoadScene()` 
+- Buttons
+  - `using UnityEngine.UI;` 
+  - On Click Events
+  - `button.onClick.AddListener()`
