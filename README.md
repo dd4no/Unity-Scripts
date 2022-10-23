@@ -7,6 +7,7 @@
   - `Start()`
   - `Update()`
 - Camera Positioning and Following
+  - `LateUpdate()`
 - User Keyboard Input
   - `Input.GetAxis()`
 - Moving Game Objects Over Time 
