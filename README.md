@@ -14,6 +14,9 @@
   - `Rotate()`
   - `Vector3.forward`
   - `Time.deltaTime`
+- Physics
+  - Rigidbody Component (Mass and Gravity)
+  - Mesh Collider Component
 
 ## Prototype2 -- Shooter
 - Camera Perspective and Isometric
