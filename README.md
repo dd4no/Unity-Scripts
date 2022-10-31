@@ -40,6 +40,7 @@
   - `Debug.Log()`
 
 ## Prototype3 -- Side-Scroller
+- Sprite Renderer
 - Physics
   - Speed, Mass, Force, and Gravity
   - `GetComponent<Rigidbody>()`
