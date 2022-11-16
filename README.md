@@ -77,6 +77,7 @@
   - `AddForce(object.transform.forward)`
 - Physics Materials
   -  Bounciness
+  -  Friction
 - Defining Vectors in 3D
 - Methods with Return Values 
 - Concatenation
