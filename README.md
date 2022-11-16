@@ -70,7 +70,7 @@
   - `.PlayOneShot()`
 
 ## Prototype4 -- Rolling Balls
-- Camera as child object
+- Camera as child object of Empty Game Object (Focal Point)
 - Global vs. Local coordinates
 - Moving in Direction of Objects
   - `object = GameObject.Find("Object Name")`
