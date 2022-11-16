@@ -78,6 +78,8 @@
 - Physics Materials
   -  Bounciness
   -  Friction
+- Follow object
+  - `rigidBody.AddForce((object.transform.position - transform.position).normalized * speed)` 
 - Defining Vectors in 3D
 - Methods with Return Values 
 - Concatenation
