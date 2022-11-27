@@ -9,8 +9,8 @@ public class PlayerController : MonoBehaviour
     private Animator playerAnimator;
 
     // Actions
-    private float jumpForce = 700.0f;
-    private float gravityModifier = 1.75f;
+    private float jumpForce = 800.0f;
+    private float gravityModifier = 2.0f;
 
     // Particles
     public ParticleSystem explosion;
@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
     // Flags
     public bool isOnGround = true;
     public bool gameOver = false;
+    private bool hasExtraJump = true;
 
     void Start()
     {
@@ -41,22 +42,35 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         // If Spacebar is pressed with player in ground contact
-        if (Input.GetKeyDown(KeyCode.Space) && isOnGround && !gameOver)
+        if (Input.GetKeyDown(KeyCode.Space) && !gameOver)
         {
-            // Make player object jump
-            playerBody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-
-            // Indicate player object is not in ground contact
-            isOnGround = false;
-
-            // Play jump sound
-            soundEffects.PlayOneShot(jump, 1.0f);
-
-            // Animate jump motion
-            playerAnimator.SetTrigger("Jump_trig");
-            dirt.Stop();
+            if (isOnGround)
+            {
+                hasExtraJump = true;
+                Jump();
+            }
+            else if (!isOnGround && hasExtraJump)
+            {
+                hasExtraJump = false;
+                Jump();
+            }
         }
+    }
 
+    private void Jump()
+    {
+        // Make Player Jump
+        playerBody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+
+        // Animate Jump Motion
+        dirt.Stop();
+        playerAnimator.SetTrigger("Jump_trig");
+
+        // Play Jump Sound
+        soundEffects.PlayOneShot(jump, 1.0f);
+
+        // Indicate Player off the Ground
+        isOnGround = false;
     }
 
     // Collisions
