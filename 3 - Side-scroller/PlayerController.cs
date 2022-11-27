@@ -8,6 +8,9 @@ public class PlayerController : MonoBehaviour
     private Rigidbody playerBody;
     private Animator playerAnimator;
 
+    // Scripts
+    private MoveLeft moveLeft;
+
     // Actions
     private float jumpForce = 800.0f;
     private float gravityModifier = 2.0f;
@@ -26,6 +29,7 @@ public class PlayerController : MonoBehaviour
     public bool isOnGround = true;
     public bool gameOver = false;
     private bool hasExtraJump = true;
+    public bool sprintMode = false;
 
     void Start()
     {
@@ -37,23 +41,42 @@ public class PlayerController : MonoBehaviour
 
         // Modify gravity
         Physics.gravity *= gravityModifier;
+
+        // Get Script
+        moveLeft = GameObject.Find("Background").GetComponent<MoveLeft>();
     }
 
     void Update()
     {
-        // If Spacebar is pressed with player in ground contact
+        // If Spacebar is pressed
         if (Input.GetKeyDown(KeyCode.Space) && !gameOver)
         {
+            // Player on Ground
             if (isOnGround)
             {
                 hasExtraJump = true;
                 Jump();
             }
+            // Player off Ground
             else if (!isOnGround && hasExtraJump)
             {
                 hasExtraJump = false;
                 Jump();
             }
+        }
+
+        // If Left Alt button pressed
+        if (Input.GetKey(KeyCode.LeftAlt) && !gameOver)
+        {
+            sprintMode = true;
+            moveLeft.scrollSpeed = 40.0f;
+            playerAnimator.SetFloat("Sprint_f", 2.0f);
+        }
+        else
+        {
+            sprintMode = false;
+            moveLeft.scrollSpeed = 20.0f;
+            playerAnimator.SetFloat("Sprint_f", 1.0f);            
         }
     }
 
@@ -90,7 +113,7 @@ public class PlayerController : MonoBehaviour
         {
             // Indicate game over condition
             gameOver = true;
-            Debug.Log("Game Over!");
+            Debug.Log("Game Over!     Final Score: " + GameManager.score);
 
             // Play crash sound
             music.Stop();
