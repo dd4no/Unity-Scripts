@@ -44,6 +44,8 @@ public class PlayerController : MonoBehaviour
 
         // Get Script
         moveLeft = GameObject.Find("Background").GetComponent<MoveLeft>();
+
+        dirt.Stop();
     }
 
     void Update()
@@ -99,8 +101,15 @@ public class PlayerController : MonoBehaviour
     // Collisions
     private void OnCollisionEnter(Collision collision)
     {
+        if (collision.gameObject.CompareTag("Start"))
+        {
+            playerAnimator.SetTrigger("Run_trig");
+            dirt.Play();
+            gameOver = false;
+        }
+
         // If player object collides with ground
-        if (collision.gameObject.CompareTag("Ground"))
+        else if (collision.gameObject.CompareTag("Ground"))
         {
             // Indicate Player on Ground
             isOnGround = true;
